@@ -1,6 +1,6 @@
 <?php
 
-namespace Jormin\DDoc;
+namespace Zhengwhizz\DDoc;
 
 class SkeletonClass
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jormin\DDoc\Controllers;
+namespace Zhengwhizz\DDoc\Controllers;
 
 use Illuminate\Routing\Controller;
 use Barryvdh\Snappy\Facades\SnappyPdf;
@@ -8,25 +8,11 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
+use Zhengwhizz\DDoc\Helper\TableHelper;
 
 class DDocController extends Controller
 {
 
-    /**
-     * 读取数据库信息
-     */
-    private function initTablesData()
-    {
-        //获取数据库表名称列表
-        $tables = DB::select('SHOW TABLE STATUS ');
-        foreach ($tables as $key => $table) {
-            //获取改表的所有字段信息
-            $columns = DB::select("SHOW FULL FIELDS FROM `".$table->Name."`");
-            $table->columns = $columns;
-            $tables[$key] = $table;
-        }
-        return $tables;
-    }
 
     /**
      * Display a listing of the resource.
@@ -35,7 +21,7 @@ class DDocController extends Controller
      */
     public function index()
     {
-        $tables = $this->initTablesData();
+        $tables = TableHelper::getTableInfos();
         return view('ddoc::index',compact('tables'));
     }
 
@@ -49,7 +35,7 @@ class DDocController extends Controller
         if(!in_array($type,array('html','pdf','md'))){
             return null;
         }
-        $tables = $this->initTablesData();
+        $tables = TableHelper::getTableInfos();
         $filename = config('app.name').'数据字典';
         switch($type){
             case 'html':
@@ -130,7 +116,7 @@ class DDocController extends Controller
      */
     private function getMdContent()
     {
-        $tables = $this->initTablesData();
+        $tables = TableHelper::getTableInfos();
         $content = "## 数据字典\n";
         foreach ($tables as $table){
             $content .= $this->tableName($table);

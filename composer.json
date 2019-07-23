@@ -1,19 +1,20 @@
 {
-    "name": "jormin/laravel-ddoc",
+    "name": "zhengwhizz/laravel-ddoc",
     "type": "library",
-    "description": "每次开发项目时，总是会被要求提供数据字典，每次手动写文档太累了，所以写了这个扩展，自动读取数据库信息并显示在网页上，支持导出Html和PDF文件。",
+    "description": "mysql、postgresql 数据字典，自动读取数据库信息并显示在网页上，支持导出Html和PDF文件。",
     "keywords": [
         "Laravel",
+        "zhengwhizz",
         "Jormin",
         "DDoc"
     ],
-    "homepage": "https://github.com/jormin/laravel-ddoc",
+    "homepage": "https://github.com/zhengwhizz/laravel-ddoc",
     "license": "MIT",
     "authors": [
         {
-            "name": "Jormin",
-            "email": "jorminxee@gmail.com",
-            "homepage": "https://blog.lerzen.com",
+            "name": "zhengwhizz",
+            "email": "zhengjun.whizz@gmail.com",
+            "homepage": "https://github.com/zhengwhizz/laravel-ddoc",
             "role": "Developer"
         }
     ],
@@ -31,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jormin\\DDoc\\": "src"
+            "Zhengwhizz\\DDoc\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jormin\\DDoc\\": "tests"
+            "Zhengwhizz\\DDoc\\": "tests"
         }
     },
     "scripts": {
@@ -50,7 +51,7 @@
         },
         "laravel": {
             "providers": [
-                "Jormin\\DDoc\\DDocServiceProvider"
+                "Zhengwhizz\\DDoc\\DDocServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jormin\DDoc;
+namespace Zhengwhizz\DDoc;
 
 use Barryvdh\Snappy\IlluminateSnappyPdf;
 use Barryvdh\Snappy\PdfWrapper;
