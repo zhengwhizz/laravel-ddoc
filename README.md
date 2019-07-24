@@ -14,7 +14,7 @@ Mysql Postgresql(pgsql) 数据字典自动生成文档，`自动读取数据库�
 
 ## 配置
 
-1. 注册 ServiceProvider:
+1. （5.5 以上无需此步）注册 ServiceProvider:
 
     ```php
     Zhengwhizz\DDoc\DDocServiceProvider::class,
