@@ -21,7 +21,7 @@ class DDocController extends Controller
      */
     public function index()
     {
-        $tables = TableHelper::getTableInfos();
+        $tables=    TableHelper::getTableInfos();
         return view('ddoc::index',compact('tables'));
     }
 
